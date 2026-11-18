@@ -1,0 +1,100 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container">
+
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold" routerLink="/Product">
+      <i class="fa-solid fa-leaf me-2"></i>
+      PLANT
+    </a>
+
+    <!-- Mobile Toggle -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#plantNavbar"
+      aria-controls="plantNavbar"
+      aria-expanded="false"
+      aria-label="Navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="plantNavbar">
+
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Product" routerLinkActive="active">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+        </li>
+
+        <!-- Dropdown (إذا كانت الروابط داخلية مؤقتة) -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false" routerLinkActive="active" routerLink="/services">
+            Services
+          </a>
+
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#" (click)="$event.preventDefault()">Indoor Plants</a></li>
+            <li><a class="dropdown-item" href="#" (click)="$event.preventDefault()">Garden Design</a></li>
+            <li><a class="dropdown-item" href="#" (click)="$event.preventDefault()">Plant Care</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+        </li>
+
+      </ul>
+
+     <!-- Search -->
+<!-- Search Container -->
+<div class="d-flex flex-column ms-lg-3">
+
+  <!-- Search -->
+  <form class="d-flex"
+        role="search"
+        (submit)="$event.preventDefault()">
+
+    <input
+      class="form-control me-2"
+      type="search"
+      placeholder="Search Products..."
+      aria-label="Search"
+      [(ngModel)]="name"
+      name="search"
+    >
+
+    <button class="btn btn-outline-success" type="submit">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+
+  </form>
+
+  <!-- Search Result -->
+  @if (name) {
+    <div class="mt-2">
+      <h5 class="mb-0">
+        <span class="bg-danger text-white px-2 py-1">
+          {{ name }}
+        </span>
+      </h5>
+    </div>
+  }
+
+</div>
+
+
+
+    </div>
+  </div>
+</nav>

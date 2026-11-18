@@ -1,0 +1,7 @@
+.plant-footer{padding:62px 0 20px;color:#e9eee7;background:#203b2a}.footer-brand{color:#fff;font-size:1.6rem;font-weight:800;letter-spacing:1px;text-decoration:none}
+.footer-brand i,.footer-brand span{color:#a9c39c}.footer-description{max-width:350px;margin-top:15px;color:#c1cec0;line-height:1.7}
+.footer-heading{margin-bottom:18px;color:#fff;font-size:1rem;font-weight:750}.footer-links{margin:0;padding:0;list-style:none}.footer-links li{margin-bottom:10px}
+.footer-links a,.footer-bottom a{color:#c1cec0;text-decoration:none;transition:color .2s}.footer-links a:hover,.footer-bottom a:hover{color:#fff}
+.footer-socials{display:flex;gap:10px}.footer-socials a{display:grid;width:40px;height:40px;place-items:center;color:#fff;background:rgba(255,255,255,.1);border-radius:50%;text-decoration:none;transition:background .2s}
+.footer-socials a:hover{background:#78966e}.footer-bottom{display:flex;justify-content:space-between;gap:15px;margin-top:45px;padding-top:18px;color:#aebead;border-top:1px solid rgba(255,255,255,.14);font-size:.9rem}
+.footer-bottom a i{margin-left:5px}@media(max-width:575.98px){.footer-bottom{flex-direction:column}}

@@ -1,0 +1,131 @@
+
+      
+
+<section class="shop-section">
+
+  @if (role === 'admin') {
+  <h2>Hello Admin</h2>
+} @else if (role === 'user') {
+  <h2>Hello User</h2>
+} @else if (role === 'editor') {
+  <h2>Hello Editor</h2>
+} @else {
+  <h2>Hello ayhagaaa</h2>
+}
+  <div class="container py-5">
+
+    <!-- Header -->
+    <div class="shop-header text-center mb-5">
+      <span class="shop-label">OUR COLLECTION</span>
+      <h1>Discover Your Style</h1>
+      <p>Explore our latest collection of fashion and accessories.</p>
+    </div>
+
+    <!-- Products -->
+    <div class="row g-4">
+
+      @for (product of productsList; track product.id) {
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3" >
+
+          <div
+            class="product-card border border-2"
+            [class.border-success]="!product.onSale"
+            [class.border-danger]="product.onSale"
+          >
+
+            <!-- Image Area (Single & Correct) -->
+            <div class="product-image">
+              <!-- Main Image -->
+              <img
+                class="main-image"
+                [src]="getMainImage(product)"
+                [alt]="product.title || 'Woman Shawl'"
+              />
+
+              @if (product.onSale) {
+                <img src="assets/images/onsale.png" alt="Sale" class="sale-badge-img" />
+              }
+
+              <span class="product-number">
+                #{{ product.id }}
+              </span>
+
+              <!-- Gallery Toggle Button (Inside Image) -->
+              <button
+                class="gallery-toggle"
+                (click)="toggleGallery(product.id)"
+              >
+                <i class="bi bi-images"></i>
+                {{ selectedProductId === product.id
+                  ? 'Hide Photos'
+                  : 'View More Photos' }}
+              </button>
+
+              <!-- Thumbnails Gallery -->
+              @if (selectedProductId === product.id) {
+                <div class="thumbnail-gallery">
+                  <!-- Cover Image Thumbnail -->
+                  <img
+                    [src]="product.imageCover"
+                    (click)="changeImage(product.id, product.imageCover)"
+                    [class.active]="getMainImage(product) === product.imageCover"
+                    alt="Cover thumbnail"
+                  />
+
+                  <!-- Sub Images Thumbnails -->
+                  @for (image of product.images; track image) {
+                    <img
+                      [src]="image"
+                      (click)="changeImage(product.id, image)"
+                      [class.active]="getMainImage(product) === image"
+                      alt="Product thumbnail"
+                    />
+                  }
+                </div>
+              }
+            </div>
+
+            <!-- Content -->
+            <div class="product-info">
+
+              <span class="category">FASHION COLLECTION</span>
+
+              <h5>
+                {{ product.title || 'Woman Shawl' }}
+              </h5>
+
+              <p class="description">
+                {{ product.description }}
+              </p>
+
+              <div class="product-footer">
+                <div>
+                  <span class="price">
+                    {{ product.price.toLocaleString() }}
+                  </span>
+                  <small> EGP</small>
+                </div>
+
+                <span class="stock">
+                  {{ product.quantity }} in stock
+                </span>
+              </div>
+
+              <!-- Action Footer -->
+              <div class="product-action">
+                <span>Explore Product</span>
+                <span class="arrow">→</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      }@empty {
+
+        <h1>There are no products available.</h1>
+      }
+
+    </div>
+  </div>
+</section>

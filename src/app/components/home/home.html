@@ -1,0 +1,20 @@
+<section class="bg-danger p-5 border border-3  rounded-3 m-4 w-50 mx-auto text-center">
+  <h1 class="pb-2">Welcome to the Home Page</h1>
+
+
+<hr>
+<button class="btn btn-dark" (click)="ChangeImage()">Toggle the Image</button>
+
+<hr>
+<div class="item">
+<img class="w-100" [src]="imgSrc" alt="Image" class="img-fluid rounded">
+</div>
+
+<!-- <h4 [class.bg-success]="role">Hello Class Binding</h4> -->
+<h4 [class]="{
+'bg-success': flag,
+'bg-danger': !flag
+}">Hello Class Binding</h4>
+
+</section>
+
