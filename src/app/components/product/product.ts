@@ -9,7 +9,7 @@ import { PRODUCTS_LIST } from '../../products.data100';
   styleUrl: './product.css',
 })
 export class Product {
-// type literal
+// type literal      vsdgsgdsgsg
 role: 'admin' | 'user' | 'editor' = 'user';
 
   selectedProductId: number | null = null;
